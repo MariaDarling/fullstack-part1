@@ -14,7 +14,6 @@ const App = () => {
    
   const [selected, setSelected] = useState(0)
 
-  // Genera un índice aleatorio entre 0 y el total de anécdotas
   const handleNextAnecdote = () => {
     const randomIndex = Math.floor(Math.random() * anecdotes.length)
     setSelected(randomIndex)
