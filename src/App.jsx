@@ -2,8 +2,18 @@ import { useState } from 'react'
 
 const Statistics = (props) => {
   const total = props.good + props.neutral + props.bad
-  const average = total === 0 ? 0 : (props.good - props.bad) / total
-  const positivePercentage = total === 0 ? 0 : (props.good / total) * 100
+
+  if (total === 0) {
+    return (
+      <div>
+        <h1>statistics</h1>
+        <p>No feedback given</p>
+      </div>
+    )
+  }
+
+  const average = (props.good - props.bad) / total
+  const positivePercentage = (props.good / total) * 100
 
   return (
     <div>
@@ -37,7 +47,6 @@ const App = () => {
         bad
       </button>
 
-      {/* Renderizamos el componente pasándole las props */}
       <Statistics good={good} neutral={neutral} bad={bad} />
     </div>
   )
